@@ -25,6 +25,42 @@ public class CircularLinkedList {
         last = newNode;
     }
 
+    void push(int data){
+        Node newNode = new Node(data);
+        if(last == null){
+            last = newNode;
+            newNode.next = newNode;
+            return;
+        }
+
+        newNode.next = last.next;
+        last.next = newNode;
+    }
+
+    void deleteByValue(int value){
+        if(last == null){
+            System.out.println("List is empty");
+            return;
+        }
+        Node temp = this.last.next;
+        do{
+            if (temp.data == value) {
+                break;
+            }
+            temp = temp.next;
+        }while(temp != last.next);
+
+        Node tempPreviousNode = this.last;
+        do{
+            if(tempPreviousNode.next == temp){
+                tempPreviousNode.next = temp.next;
+                return;
+            }
+            tempPreviousNode = tempPreviousNode.next;
+        }while(tempPreviousNode != this.last);
+
+    }
+
     void printList() {
         if (last == null) {
             System.out.println("List is empty");

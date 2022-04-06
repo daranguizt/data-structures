@@ -59,6 +59,10 @@ public class LinkedList<T> {
         newNode.next = auxNext;
     }
 
+    void deleteByValue(int value){
+
+    }
+
     void print(){
         Node<T> aux = this.head;
         while(aux != null){
@@ -66,6 +70,7 @@ public class LinkedList<T> {
             aux = aux.next;
         }
     }
+
 
 
 }
